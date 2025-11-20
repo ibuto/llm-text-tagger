@@ -1,0 +1,21 @@
+{
+    "AccountAdapter": {
+        "tagName": "AccountAdapter",
+        "variant": [
+            "アカウントアダプタ",
+            "Account@Adapter"
+        ]
+    },
+    "ARROWS Tab": {
+        "tagName": "ARROWS Tab",
+        "variant": [
+            "アローズタブ",
+            "アロタブ",
+            "ARROWSTab、富士通製タブレット"
+        ]
+    },
+    "キーボード": {
+        "tagName": "キーボード",
+        "variant": []
+    }
+}

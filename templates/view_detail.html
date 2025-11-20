@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>ファイル内容: {{ filename }}</h2>
+    <textarea readonly style="width: 100%; height: 400px; background-color: #f8f9fa;">{{ content }}</textarea>
+    <br>
+    <a href="{{ url_for('view_files') }}">一覧に戻る</a>
+{% endblock %}

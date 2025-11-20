@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>ファイルの追加</h2>
+    <form method="post" enctype="multipart/form-data">
+        <p>
+            <input type="file" name="files[]" multiple>
+        </p>
+        <p>
+            <input type="submit" value="アップロード">
+        </p>
+    </form>
+
+    <hr>
+
+    <h2>未処理ファイルのタグ付け</h2>
+    {% if unprocessed_files %}
+        <p>以下のファイルが未処理です:</p>
+        <ul>
+            {% for file in unprocessed_files %}
+                <li>{{ file }}</li>
+            {% endfor %}
+        </ul>
+        <form action="{{ url_for('process_files') }}" method="post">
+            <input type="submit" value="タグ付けを実行">
+        </form>
+    {% else %}
+        <p>未処理のファイルはありません。</p>
+    {% endif %}
+{% endblock %}

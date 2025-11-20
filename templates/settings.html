@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>設定</h2>
+    <form method="post">
+        <p>API Base URL:<br>
+        <input type="text" name="api_base" value="{{ settings.api_base }}"></p>
+        <p>API Key:<br>
+        <input type="text" name="api_key" value="{{ settings.api_key }}"></p>
+        <p>システムプロンプト:<br>
+        <textarea name="system_prompt" rows="10" style="height: 200px;">{{ settings.system_prompt }}</textarea></p>
+        <p><input type="submit" value="保存"></p>
+    </form>
+{% endblock %}

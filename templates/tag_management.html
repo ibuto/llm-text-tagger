@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>タグの管理</h2>
+    <form method="post">
+        <h3>新しいタグの追加/更新</h3>
+        <p>タグ名: <input type="text" name="tagName" required></p>
+        <p>表記ゆれ (カンマ区切り): <input type="text" name="variants"></p>
+        <p><input type="submit" value="追加/更新"></p>
+    </form>
+
+    <hr>
+
+    <h3>既存のタグ一覧</h3>
+    {% if tags %}
+        <ul>
+            {% for name, data in tags.items() %}
+                <li style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>{{ data.tagName }}</strong>
+                        {% if data.variant %}
+                            <br><small>表記ゆれ: {{ data.variant|join(', ') }}</small>
+                        {% endif %}
+                    </div>
+                    <form action="{{ url_for('delete_tag', tag_name=name) }}" method="post" style="margin: 0;">
+                        <input type="submit" value="削除" onclick="return confirm('タグ「{{ name }}」を本当に削除しますか？');" style="background-color: #dc3545;">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>登録されているタグはありません。</p>
+    {% endif %}
+{% endblock %}
